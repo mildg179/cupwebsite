@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Ribes';
+    src: url('Ribes-Black.woff2') format('woff2'),
+        url('Ribes-Black.woff') format('woff'),
+        url('Ribes-Black.ttf') format('truetype'),
+        url('Ribes-Black.svg#Ribes-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Necto Mono';
+    src: url('NectoMono-Regular.woff2') format('woff2'),
+        url('NectoMono-Regular.woff') format('woff'),
+        url('NectoMono-Regular.ttf') format('truetype'),
+        url('NectoMono-Regular.svg#NectoMono-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    background-color: white;
+    color: black;
+    font-size: 100%;
+}
+.header { 
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #F0EA51;
+    border-bottom: 2px solid black;
+}
+.oval {
+    height: 125px;
+    width: 400px;
+    display: flex;
+    background-color: white;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+} 
+.content {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+img {
+    transition: transform .8s ease-in-out;
+    transform-origin: 50% 50% 0;
+    }
+img:hover {
+    transform: rotate(360deg);
+}
+.responsive {
+     width: 100%;
+     max-width: 550px;
+     height: auto;
+}
+.bottom {
+    background-color: #F0EA51;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+}
+
