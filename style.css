@@ -23,6 +23,9 @@ body {
     background-color: white;
     color: black;
     font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .header { 
     margin: 0 auto;
@@ -33,16 +36,60 @@ body {
     background: #F0EA51;
     border-bottom: 2px solid black;
 }
+h1 {
+    font-family: 'Ribes';
+    font-size: 50px;
+    color: black;
+}
+p {
+    font-family: 'Necto Mono';
+    font-size: 20px;
+    color: black;
+    margin-top: .5em ;
+    margin-bottom: .5em ;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: #F05245;
+}
+a:active {
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
 .oval {
     height: 125px;
     width: 400px;
-    display: flex;
-    background-color: white;
     border-radius: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
     border-style: solid;
     border-color: black;
     border-width: 2px;
 } 
+.outer-container {
+    display: flex;  
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 .content {
     margin: 0 auto;
     width: 100%;
@@ -51,10 +98,19 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+.text {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 img {
     transition: transform .8s ease-in-out;
     transform-origin: 50% 50% 0;
-    }
+    } 
 img:hover {
     transform: rotate(360deg);
 }
@@ -63,12 +119,46 @@ img:hover {
      max-width: 550px;
      height: auto;
 }
-.bottom {
-    background-color: #F0EA51;
-    margin: 0 auto;
+.responsive2 {
     width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width:100%;
+    background-color: #F0EA51;
     border-top: 2px solid black;
+    margin-top: auto;
+    padding: 1rem;
+}
+.row1 {
+    animation-duration: 20s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    overflow: hidden
+}
+.top {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+}
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 200%;
+    }
+    to {
+        margin-left: -50%;
+        width: 100%;
+      }
 }
 
