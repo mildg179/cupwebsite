@@ -528,16 +528,16 @@ function eachPage(pageCallback, done) {
                 done(err, null);
             }
             else {
-                var next = void 0;
-                if (result.offset) {
-                    params.offset = result.offset;
-                    next = inner;
-                }
-                else {
-                    next = function () {
-                        done(null);
-                    };
-                }
+              var next = void 0;
+              if (result.offset) {
+                  params.offset = result.offset;
+                  next = inner;
+              }
+              else {
+                  next = function () {
+                      done(null);
+                  };
+              }
                 var records = map_1.default(result.records, function (recordJson) {
                     return new record_1.default(_this._table, null, recordJson);
                 });

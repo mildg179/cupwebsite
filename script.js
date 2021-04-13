@@ -23,6 +23,11 @@ var base = new Airtable({ apiKey: "keypoMs7rs0iTMssF" }).base(
 
   function gotAllCups(err) {
     console.log("gotAllCups()");
+    try {
+        showTypes();
+      } catch (error) {
+        error.log(error);
+      }
   
     // report an error, you'd want to do something better than this in production
     if (err) {
