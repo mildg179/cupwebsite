@@ -142,6 +142,8 @@ a:visited {
     border-width: 2px;
 }
 .oval1 {
+    display: flex;
+    justify-content: center;
     background: white;
     border-radius: 50%;
 }
@@ -201,6 +203,8 @@ a:visited {
     border-top: 2px solid black;
     margin-top: auto;
     padding: 1rem;
+    position: sticky; bottom: 0;
+    
 }
 .row1 {
     animation-duration: 20s;
@@ -236,4 +240,17 @@ a:visited {
         width: 100%;
       }
 }
+@media screen and (max-width: 600px) {
+    .big-oval {
+        display: flex;
+        height: 175px;
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+    }
+  }
+
 
