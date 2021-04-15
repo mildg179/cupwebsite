@@ -43,7 +43,8 @@ body {
     padding: 10px;
     background: #5C7358;;
     border-bottom: 2px solid black;
-    position: sticky; top: 0;
+    position: sticky; 
+    top: 0;
 }
 h1 {
     font-family: 'Ribes';
