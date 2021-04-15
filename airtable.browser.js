@@ -524,26 +524,32 @@ function eachPage(pageCallback, done) {
     var params = clone_1.default(this._params);
     var inner = function () {
         _this._table._base.runAction('get', path, params, null, function (err, response, result) {
-            if (err) {
-                done(err, null);
+          if (err) {
+            done(err, null);
+          } else {
+            var next = void 0;
+            if (result.offset) {
+              params.offset = result.offset;
+              next = inner;
+            } else {
+              next = function () {
+                done(null);
+              };
             }
-            else {
-              var next = void 0;
-              if (result.offset) {
-                  params.offset = result.offset;
-                  next = inner;
+            var records = map_1.default(
+              result.records,
+              function (recordJson) {
+                return new record_1.default(
+                  _this._table,
+                  null,
+                  recordJson
+                );
               }
-              else {
-                  next = function () {
-                      done(null);
-                  };
-              }
-                var records = map_1.default(result.records, function (recordJson) {
-                    return new record_1.default(_this._table, null, recordJson);
-                });
-                pageCallback(records, next);
-            }
-        });
+            );
+            pageCallback(records, next);
+          }
+        }
+      );
     };
     inner();
 }

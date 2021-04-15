@@ -7,9 +7,7 @@ var base = new Airtable({ apiKey: "keypoMs7rs0iTMssF" }).base(
     "apptVql6vVIecIoVl"
   );
 
-    base("cups")
-    .select({})
-    .eachPage(gotPageOfCups, gotAllCups);
+base("cups").select({ maxRecords:100 }).eachPage(gotPageOfCups, gotAllCups);
 
   var cups = [];
 
@@ -23,23 +21,12 @@ var base = new Airtable({ apiKey: "keypoMs7rs0iTMssF" }).base(
 
   function gotAllCups(err) {
     console.log("gotAllCups()");
+
     try {
-        showTypes();
+        showCups();
       } catch (error) {
-        error.log(error);
-      }
-  
-    // report an error, you'd want to do something better than this in production
-    if (err) {
-      console.log("error loading data");
-      console.error(err);
-      return;
+        error.log(error);}
     }
-  
-    // call functions to log and show the cups
-    consoleLogCups();
-    showCups();
-  }
   
   // just loop through the cups and console.log them
   function consoleLogCups() {
@@ -59,24 +46,20 @@ function showCups() {
       document.querySelector(".container").append(cupContainer);
 
     // add cup name
-    var cupName = document.createElement("h1");
+    var cupName = document.createElement("div");
     cupName.classList.add("cup-name");
     cupName.innerText = cup.fields.cup_name;
     cupName.append(cupName);
 
-    var nameOfType = document.createElement("p");
-    nameOfType.classList.add("cup-type");
-    nameOfType.innerText = cup.fields.type;
-    cupContainer.append(nameOfType);
+    var cupImg = document.createElement("img");
+    cupImg.classList.add("cup-img");
+    cupImg.src = cup.fields.Image[0].url;
+    cupContainer.append(cupImg);
 
-    var cupImage = document.createElement("img")
-    cupImage.classList.add("cup-image");
-    cupImage.src = cup.fields.cup_image[0].url;
-    cupContainer.append(cupImage);
-    document.body.append(cupImage);
+    var cuptName = document.createElement("p");
+    cupName.classList.add("cup-name");
+    restaurantName.innerText = cup.fields.Name;
+    restaurantContainer.append(cupName);
 
-    var songImage = document.createElement("img")
-    cupImage.src = cup.fields.cup_image[0].url;
-    document.querySelector(".container").append(cupImage);
     });
 }
