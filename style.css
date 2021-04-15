@@ -34,6 +34,7 @@ body {
     padding: 10px;
     background: #F0EA51;
     border-bottom: 2px solid black;
+    position: sticky; top: 0;
 }
 h1 {
     font-family: 'Ribes';
@@ -191,6 +192,7 @@ a:visited {
     border-top: 2px solid black;
     margin-top: auto;
     padding: 1rem;
+    position: sticky; bottom: 0;
 }
 .footer2 {
     display: flex;
@@ -224,6 +226,12 @@ a:visited {
     flex-direction: row;
     justify-content: flex-end;
 }
+.galleryscroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 #ceramic {
     position: absolute;
     height: 13rem;
@@ -240,6 +248,30 @@ a:visited {
         width: 100%;
       }
 }
+@media screen and (max-width: 930px) {
+    .outer-container {
+        display: flex;  
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    #ceramic {
+        position: absolute;
+        height: 8rem;
+        width: 8rem;
+        z-index: 1;
+    }
+    img {
+        height: 32rem;
+        width: 32rem;
+    }
+.pulseShake { animation-name: pulseShake; animation-iteration-count: infinite }
+@keyframes pulseShake {
+    90% { transform: scale(1) }
+    92% { transform: scale(1.2) }
+    96% { transform: scale(1, 1) }
+    98% { transform: scale(1.1) }
+}
+}
 @media screen and (max-width: 600px) {
     .big-oval {
         display: flex;
@@ -251,6 +283,31 @@ a:visited {
         border-color: black;
         border-width: 2px;
     }
-  }
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        background-color: #F0EA51;
+        border-top: 2px solid black;
+        margin-top: auto;
+        padding: 1rem;
+    }
+    .footer2 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:100%;
+        background-color: #5C7358;
+        border-top: 2px solid black;
+        margin-top: auto;
+        padding: 1rem;
+        position: sticky; bottom: 0;
+}
+}
 
 
