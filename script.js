@@ -23,9 +23,9 @@ base("cups").select({ maxRecords:100 }).eachPage(gotPageOfCups, gotAllCups);
     console.log("gotAllCups()");
 
     try {
-        showCups();
-      } catch (error) {
-        error.log(error);}
+      showCups();
+    } catch (error) {
+      console.error(error);}
     }
   
   // just loop through the cups and console.log them
@@ -38,28 +38,39 @@ base("cups").select({ maxRecords:100 }).eachPage(gotPageOfCups, gotAllCups);
 
 // look through our airtable data, create elements
 function showCups() {
-    console.log("showCups()");
-    cups.forEach(cup => {
-      // create container for each cup
-      var cupContainer = document.createElement("div");
-      cupContainer.classList.add("cup-container");
-      document.querySelector(".container").append(cupContainer);
+  console.log("showCups()");
+  cups.forEach(cup => {
+
+    // <div class="container">
+    //   {/* foreach */}
+    //   <div class="cup-container">
+    //     <div class="cup-name">
+    //       {{cup_name}}
+    //     </div>
+    //     <img src="cup.fields.Image[0].url" />
+    //   </div>
+    // </div>
+
+    // create container for each cup
+    var cupContainer = document.createElement("div");
+    cupContainer.classList.add("cup-container");
+    document.querySelector(".container").append(cupContainer);
 
     // add cup name
     var cupName = document.createElement("div");
     cupName.classList.add("cup-name");
-    cupName.innerText = cup.fields.cup_name;
-    cupName.append(cupName);
+    cupName.innerText = cup.fields.name;
+    cupContainer.append(cupName);
 
     var cupImg = document.createElement("img");
     cupImg.classList.add("cup-img");
-    cupImg.src = cup.fields.Image[0].url;
+    cupImg.src = cup.fields.cup_image[0].url;
     cupContainer.append(cupImg);
 
-    var cuptName = document.createElement("p");
-    cupName.classList.add("cup-name");
-    restaurantName.innerText = cup.fields.Name;
-    restaurantContainer.append(cupName);
+    // var cuptName = document.createElement("p");
+    // cupName.classList.add("cup-name");
+    // restaurantName.innerText = cup.fields.Name;
+    // restaurantContainer.append(cupName);
 
-    });
+  });
 }
